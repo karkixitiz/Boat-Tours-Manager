@@ -21,4 +21,5 @@ Firstly given login password is encrypted and  compare with encrypted store pass
  User can store their Credentials on browser  for the next time login.
  #### Forget Password
  User can reset new password if hs/she forgot their password. User should enter valid gmail account to get new password reset link.
+ #### Rent a Boat
 
