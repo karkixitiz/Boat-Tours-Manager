@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BoatToursManager.DAL;
 
 namespace BoatToursManager.BL
 {
-    public class User
+    public class User : IEquatable<User>, IDBStorable<DAL.User>
     {
         public int id { get; private set; } = 0;
         public string name { get; set; }
@@ -18,6 +19,14 @@ namespace BoatToursManager.BL
         public bool isEmailVerified { get; set; }
         public Guid passwordResetCode { get; set; }
 
-       
+        public bool Equals(User other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DAL.User saveInDB()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
