@@ -50,7 +50,7 @@ namespace BoatToursManager.BL
             // Create, if not existant
             if (this.id == 0)
             {
-                entity = MainClass.Instance.db.LatLongCoordinates.Add(new DAL.LatLongCoordinate()
+                entity = MainClass.Instance.db.LatLongCoordinate.Add(new DAL.LatLongCoordinate()
                 {
                     latitude = this.latitude,
                     longitude = this.longitude,
@@ -61,7 +61,7 @@ namespace BoatToursManager.BL
             }
             else
             {
-                entity = MainClass.Instance.db.LatLongCoordinates.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.LatLongCoordinate.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

@@ -11,6 +11,7 @@ namespace BoatToursManager.DAL
 {
     using System;
     using System.Collections.Generic;
+
     public partial class BoatToursManager
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -49,21 +50,4 @@ namespace BoatToursManager.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }
-    //public partial class BoatToursManager
-    //{
-    //    public int id { get; set; }
-    //    public Nullable<int> locationId { get; set; }
-    //    public Nullable<int> routeId { get; set; }
-    //    public Nullable<int> schedulePlanId { get; set; }
-    //    public Nullable<int> orderId { get; set; }
-    //    public Nullable<int> shipId { get; set; }
-
-    //    public virtual BoatToursManager BoatToursManager1 { get; set; }
-    //    public virtual BoatToursManager BoatToursManager2 { get; set; }
-    //    public virtual Location Location { get; set; }
-    //    public virtual Order Order { get; set; }
-    //    public virtual Route Route { get; set; }
-    //    public virtual SchedulePlan SchedulePlan { get; set; }
-    //    public virtual Ship Ship { get; set; }
-    //}
 }

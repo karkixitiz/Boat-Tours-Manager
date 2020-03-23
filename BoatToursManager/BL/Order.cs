@@ -30,12 +30,12 @@ namespace BoatToursManager.BL
         {
             this.id = order.id;
             this.paymentType = (PaymentType)Enum.ToObject(typeof(PaymentType), order.paymentType);
-            this.orderDate = order.orderDate;
+            this.orderDate = order.orderDate??DateTime.Now;
             this.user = new User(order.User);
-            this.billed = order.billed;
-            this.orderAddress = new Address(order.Address);
-            this.price = order.price;
-            this.orderNumber = order.orderNumber;
+            this.billed = order.billed??true;
+            //this.orderAddress = new Address(order.Address);
+            this.price = Convert.ToDecimal(order.price);
+            this.orderNumber = order.orderNumber??0;
         }
 
         public override bool Equals(object obj)

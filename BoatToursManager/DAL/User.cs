@@ -17,6 +17,7 @@ namespace BoatToursManager.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            this.LikeDislikeBoat = new HashSet<LikeDislikeBoat>();
             this.Order = new HashSet<Order>();
         }
     
@@ -31,6 +32,8 @@ namespace BoatToursManager.DAL
         public Nullable<System.Guid> activationCode { get; set; }
         public Nullable<System.Guid> passwordResetCode { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LikeDislikeBoat> LikeDislikeBoat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
         public virtual UserAddress UserAddress { get; set; }

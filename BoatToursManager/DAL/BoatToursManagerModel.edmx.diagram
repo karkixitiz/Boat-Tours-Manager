@@ -4,30 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0947c9f5c2414b488a724dc036e438af" Name="Diagram1">
-        <EntityTypeShape EntityType="BoatTourManagerModel.Boat" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+      <Diagram DiagramId="074b9bdff6ff4d2cbd40b572cd885a80" Name="Diagram1">
+        <EntityTypeShape EntityType="BoatTourManagerModel.Address" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Boat" Width="1.5" PointX="7.5" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.BoatRental" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.BoatToursManager" Width="1.5" PointX="14.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.City" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.City" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Comments" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.Country" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.GroupTrip" Width="1.5" PointX="9.75" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.GroupTripPriceCategory" Width="1.5" PointX="12" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.LatLongCoordinate" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.Location" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.GroupTrip" Width="1.5" PointX="9.75" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.GroupTripPriceCategory" Width="1.5" PointX="12" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.LatLongCoordinate" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.LikeDislikeBoat" Width="1.5" PointX="12" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Location" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.Order" Width="1.5" PointX="12" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.PersonCategory" Width="1.5" PointX="7.5" PointY="24.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.PriceCategory" Width="1.5" PointX="9.75" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.Route" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.PersonCategory" Width="1.5" PointX="7.5" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Popularity" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.PriceCategory" Width="1.5" PointX="9.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Route" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.SchedulePlan" Width="1.5" PointX="12" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.ScheduleRoute" Width="1.5" PointX="14.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.Ship" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.State" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.TripType" Width="1.5" PointX="7.5" PointY="20.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BoatTourManagerModel.User" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.ScheduleRoute" Width="1.5" PointX="14.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.Ship" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.State" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.TripType" Width="1.5" PointX="7.5" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BoatTourManagerModel.User" Width="1.5" PointX="9.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="BoatTourManagerModel.UserAddress" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Boat_Location" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_BoatRental_Boat_boatId" ManuallyRouted="false" />
+        <AssociationConnector Association="BoatTourManagerModel.FK_LikeDislikeBoat_Boat" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_BoatRental_Location_locationId" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_BoatToursManager_BoatToursManager" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_BoatToursManager_Location_locationId" ManuallyRouted="false" />
@@ -47,6 +52,7 @@
         <AssociationConnector Association="BoatTourManagerModel.FK_Location_LatLongCoordinate_latLongCoordinateId" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Route_LatLongCoordinate_endPoint" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Route_LatLongCoordinate_startPoint" ManuallyRouted="false" />
+        <AssociationConnector Association="BoatTourManagerModel.FK_LikeDislikeBoat_User" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Order_Address_addressId" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Order_User_userId" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_PriceCategory_PersonCategory_personCategoryId" ManuallyRouted="false" />
@@ -56,7 +62,7 @@
         <AssociationConnector Association="BoatTourManagerModel.FK_ScheduleRoute_SchedulePlan" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_ScheduleRoute_Route" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Address_State" ManuallyRouted="false" />
-        <AssociationConnector Association="BoatTourManagerModel.FK_User_Address_addressId" ManuallyRouted="false" />
+        <AssociationConnector Association="BoatTourManagerModel.FK_User_Address_id" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.FK_Address_Address" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.BoatRentalOrder" ManuallyRouted="false" />
         <AssociationConnector Association="BoatTourManagerModel.TripOrder" ManuallyRouted="false" />

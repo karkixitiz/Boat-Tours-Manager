@@ -58,7 +58,7 @@ namespace BoatToursManager.BL
 
             // Create, if not existant
             if (this.id == 0) {
-                entity = MainClass.Instance.db.PriceCategories.Add(new DAL.PriceCategory() {
+                entity = MainClass.Instance.db.PriceCategory.Add(new DAL.PriceCategory() {
                     name = this.name,
                     price = this.price,
                     routeId = this.route.id,
@@ -69,7 +69,7 @@ namespace BoatToursManager.BL
                 this.id = entity.id;
             }
             else {
-                entity = MainClass.Instance.db.PriceCategories.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.PriceCategory.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

@@ -21,7 +21,7 @@ namespace BoatToursManager.BL
         private List<PriceCategory> priceCategories = new List<PriceCategory>();
         private List<User> users = new List<User>();
         private List<TripType> tripTypes = new List<TripType>();
-        public DAL.BoatTourManagerEntities db { get; } = new DAL.BoatTourManagerEntities();
+        public DAL.BoatTourManagerEntities1 db { get; } = new DAL.BoatTourManagerEntities1();
         private DAL.BoatToursManager entity { get; }
 
         private MainClass()
@@ -57,7 +57,7 @@ namespace BoatToursManager.BL
                 this.tripTypes.Add(new TripType(value));
 
             foreach (DAL.User value in entity.Users)
-                this.users.Add(new User());
+                this.users.Add(new User(value));
 
             foreach (DAL.Order value in entity.Orders)
             {

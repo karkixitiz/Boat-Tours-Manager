@@ -47,7 +47,7 @@ namespace BoatToursManager.BL
             // Create, if not existant
             if (this.id == 0)
             {
-                entity = MainClass.Instance.db.TripTypes.Add(new DAL.TripType()
+                entity = MainClass.Instance.db.TripType.Add(new DAL.TripType()
                 {
                     name = this.name,
                     driveTimeMultiplier = this.driveTimeMultiplier
@@ -57,7 +57,7 @@ namespace BoatToursManager.BL
             }
             else
             {
-                entity = MainClass.Instance.db.TripTypes.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.TripType.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

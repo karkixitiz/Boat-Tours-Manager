@@ -60,7 +60,7 @@ namespace BoatToursManager.BL
             // Create, if not existant
             if (this.id == 0)
             {
-                entity = MainClass.Instance.db.Routes.Add(new DAL.Route()
+                entity = MainClass.Instance.db.Route.Add(new DAL.Route()
                 {
                     driveTime = this.driveTimeMinutes,
                     endPointLatLengId = this.endPoint.id,
@@ -71,7 +71,7 @@ namespace BoatToursManager.BL
             }
             else
             {
-                entity = MainClass.Instance.db.Routes.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.Route.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

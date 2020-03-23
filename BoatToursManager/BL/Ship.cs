@@ -47,7 +47,7 @@ namespace BoatToursManager.BL
             // Create, if not existant
             if (this.id == 0)
             {
-                entity = MainClass.Instance.db.Ships.Add(new DAL.Ship()
+                entity = MainClass.Instance.db.Ship.Add(new DAL.Ship()
                 {
                     capacity = this.capacity,
                     name = this.name
@@ -57,7 +57,7 @@ namespace BoatToursManager.BL
             }
             else
             {
-                entity = MainClass.Instance.db.Ships.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.Ship.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

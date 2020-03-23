@@ -18,6 +18,7 @@ namespace BoatToursManager.DAL
         public Boat()
         {
             this.BoatRental = new HashSet<BoatRental>();
+            this.LikeDislikeBoat = new HashSet<LikeDislikeBoat>();
         }
     
         public int id { get; set; }
@@ -26,9 +27,16 @@ namespace BoatToursManager.DAL
         public decimal pricePerHour { get; set; }
         public bool rented { get; set; }
         public int location_id { get; set; }
+        public Nullable<int> likeCount { get; set; }
+        public Nullable<int> disLikeCount { get; set; }
+        public Nullable<int> seasonId { get; set; }
+        public string title { get; set; }
+        public string imagePath { get; set; }
     
         public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BoatRental> BoatRental { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LikeDislikeBoat> LikeDislikeBoat { get; set; }
     }
 }

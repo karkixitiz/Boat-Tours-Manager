@@ -44,7 +44,7 @@ namespace BoatToursManager.BL
             this.tripType = new TripType(groupTrip.TripType);
             this.ship = new Ship(groupTrip.Ship);
 
-            foreach (DAL.GroupTripPriceCategory gtpc in groupTrip.GroupTripPriceCategories)
+            foreach (DAL.GroupTripPriceCategory gtpc in groupTrip.GroupTripPriceCategory)
                 this.personsOnBoard.Add(new PriceCategory(gtpc.PriceCategory), gtpc.quantity);
         }
 
@@ -108,7 +108,7 @@ namespace BoatToursManager.BL
             return totalPrice;
         }
 
-        public decimal getTotalDriveTimeMinutes()
+        public decimal ? getTotalDriveTimeMinutes()
         {
             return this.route.driveTimeMinutes * this.tripType.driveTimeMultiplier;
         }

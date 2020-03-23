@@ -38,7 +38,7 @@ namespace BoatToursManager.BL
                     DateTime.Compare(route.depatureTime, endDate ?? DateTime.Now) <= 0 &&
                     DateTime.Compare(returnTime, endDate ?? DateTime.Now) <= 0)
                 {
-                    DAL.ScheduleRoute entity = MainClass.Instance.db.ScheduledRoutes.Where(v => v.routeId == route.id).FirstOrDefault();
+                    DAL.ScheduleRoute entity = MainClass.Instance.db.ScheduleRoute.Where(v => v.routeId == route.id).FirstOrDefault();
 
                     if (entity == null && (entity = route.saveInDB()) == null)
                         return false;
@@ -53,7 +53,7 @@ namespace BoatToursManager.BL
 
             public bool removeScheduledRoute(ScheduledRoute route)
             {
-                DAL.ScheduleRoute entity = MainClass.Instance.db.ScheduledRoutes.Where(v => v.routeId == route.id).FirstOrDefault();
+                DAL.ScheduleRoute entity = MainClass.Instance.db.ScheduleRoute.Where(v => v.routeId == route.id).FirstOrDefault();
 
                 if (entity == null)
                     return false;
@@ -97,7 +97,7 @@ namespace BoatToursManager.BL
                 // Create, if not existant
                 if (this.id == 0)
                 {
-                    entity = MainClass.Instance.db.SchedulePlans.Add(new DAL.SchedulePlan()
+                    entity = MainClass.Instance.db.SchedulePlan.Add(new DAL.SchedulePlan()
                     {
                         beginDate = this.beginDate,
                         endDate = this.endDate
@@ -107,7 +107,7 @@ namespace BoatToursManager.BL
                 }
                 else
                 {
-                    entity = MainClass.Instance.db.SchedulePlans.Where(v => v.id == this.id).FirstOrDefault();
+                    entity = MainClass.Instance.db.SchedulePlan.Where(v => v.id == this.id).FirstOrDefault();
 
                     if (entity == null)
                         return null;

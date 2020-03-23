@@ -44,7 +44,7 @@ namespace BoatToursManager.BL
             // Create, if not existant
             if (this.id == 0)
             {
-                entity = MainClass.Instance.db.PersonCategories.Add(new DAL.PersonCategory()
+                entity = MainClass.Instance.db.PersonCategory.Add(new DAL.PersonCategory()
                 {
                     name = this.name
                 });
@@ -53,7 +53,7 @@ namespace BoatToursManager.BL
             }
             else
             {
-                entity = MainClass.Instance.db.PersonCategories.Where(v => v.id == this.id).FirstOrDefault();
+                entity = MainClass.Instance.db.PersonCategory.Where(v => v.id == this.id).FirstOrDefault();
 
                 if (entity == null)
                     return null;

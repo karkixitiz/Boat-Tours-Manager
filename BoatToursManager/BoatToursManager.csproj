@@ -51,18 +51,109 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FParsec, Version=1.0.0.0, Culture=neutral, PublicKeyToken=40ccfc0a09edbb5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\FParsec.1.0.3\lib\net40-client\FParsec.dll</HintPath>
+    </Reference>
+    <Reference Include="FParsecCS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=40ccfc0a09edbb5d, processorArchitecture=MSIL">
+      <HintPath>..\packages\FParsec.1.0.3\lib\net40-client\FParsecCS.dll</HintPath>
+    </Reference>
+    <Reference Include="Freya.Types, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freya.Types.4.0.0\lib\net45\Freya.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Freya.Types.Http, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freya.Types.Http.4.0.0\lib\net45\Freya.Types.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Freya.Types.Http.Cors, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freya.Types.Http.Cors.4.0.0\lib\net45\Freya.Types.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Freya.Types.Language, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freya.Types.Language.4.0.0\lib\net45\Freya.Types.Language.dll</HintPath>
+    </Reference>
+    <Reference Include="Freya.Types.Uri, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Freya.Types.Uri.4.0.0\lib\net45\Freya.Types.Uri.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.4.3.4\lib\net45\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMapsApi, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMapsApi.0.80.0\lib\net40\GoogleMapsApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Jmelosegui.Mvc.GoogleMap, Version=0.8.0.0, Culture=neutral, PublicKeyToken=bf3d287218d508fe, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jmelosegui.Mvc.Googlemap.0.8.0.0\lib\net45\Jmelosegui.Mvc.GoogleMap.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -107,9 +198,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -129,27 +217,163 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BL\Address.cs" />
+    <Compile Include="BL\Boat.cs" />
+    <Compile Include="BL\BoatRental.cs" />
+    <Compile Include="BL\BoatRentalOrder.cs" />
+    <Compile Include="BL\Comment.cs" />
+    <Compile Include="BL\GroupTrip.cs" />
+    <Compile Include="BL\GroupTripOrder.cs" />
+    <Compile Include="BL\IDBStorable.cs" />
+    <Compile Include="BL\LatLongCoordinate.cs" />
+    <Compile Include="BL\likeDislike.cs" />
+    <Compile Include="BL\Location.cs" />
     <Compile Include="BL\MainClass.cs" />
+    <Compile Include="BL\Order.cs" />
+    <Compile Include="BL\PaymentType.cs" />
+    <Compile Include="BL\PersonCategory.cs" />
+    <Compile Include="BL\PriceCategory.cs" />
+    <Compile Include="BL\Route.cs" />
     <Compile Include="BL\SchedulePlan.cs" />
+    <Compile Include="BL\ScheduleRoute.cs" />
+    <Compile Include="BL\Ship.cs" />
+    <Compile Include="BL\TripType.cs" />
     <Compile Include="BL\User.cs" />
     <Compile Include="BL\UserType.cs" />
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BoatApiController.cs" />
+    <Compile Include="Controllers\BoatController.cs" />
+    <Compile Include="Controllers\CommentApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
+    <Compile Include="Controllers\ShipController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesApiController.cs" />
+    <Compile Include="CryptoPass.cs" />
+    <Compile Include="DAL\Address.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Boat.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BoatRental.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BoatToursManager.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\BoatToursManagerModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BoatToursManagerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\BoatToursManagerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\BoatToursManagerModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BoatToursManagerModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\City.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Comments.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Country.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GroupTrip.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\GroupTripPriceCategory.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LatLongCoordinate.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\LikeDislikeBoat.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Location.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Order.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PersonCategory.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Popularity.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\PriceCategory.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Route.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SchedulePlan.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ScheduleRoute.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Ship.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\State.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\sysdiagrams.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TripType.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\User.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\UserAddress.cs">
+      <DependentUpon>BoatToursManagerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\BoatListViewModel.cs" />
+    <Compile Include="Models\BoatModel.cs" />
+    <Compile Include="Models\BoatRentModel.cs" />
+    <Compile Include="Models\CommentModel.cs" />
+    <Compile Include="Models\GroupTripModel.cs" />
+    <Compile Include="Models\GroupTripPriceCategoryModel.cs" />
+    <Compile Include="Models\LatLongModel.cs" />
+    <Compile Include="Models\LatLongStringModel.cs" />
+    <Compile Include="Models\LikeDislikeModel.cs" />
+    <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\PersonCategoryModel.cs" />
+    <Compile Include="Models\PopularityModel.cs" />
+    <Compile Include="Models\PriceCategoryModel.cs" />
+    <Compile Include="Models\RouteLatLongModel.cs" />
+    <Compile Include="Models\RouteLatLongStringModel.cs" />
+    <Compile Include="Models\RouteModel.cs" />
+    <Compile Include="Models\SchedulePlanModel.cs" />
+    <Compile Include="Models\ShipModel.cs" />
+    <Compile Include="Models\TestClass.cs" />
+    <Compile Include="Models\TripTypeModel.cs" />
+    <Compile Include="Models\UserChangePasswordModel.cs" />
+    <Compile Include="Models\UserForgetPasswordModel.cs" />
     <Compile Include="Models\UserLoginModel.cs" />
+    <Compile Include="Models\UserRegistrationModel.cs" />
+    <Compile Include="PaypalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -217,7 +441,13 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="DAL\BoatToursManagerModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BoatToursManagerModel.edmx</DependentUpon>
       <LastGenOutput>BoatToursManagerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\BoatToursManagerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BoatToursManagerModel.edmx</DependentUpon>
+      <LastGenOutput>BoatToursManagerModel.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -309,10 +539,11 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BoatToursManagerModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DAL\BoatToursManagerModel.edmx.diagram">
+    <Content Include="DAL\BoatToursManagerModel.edmx.diagram">
       <DependentUpon>BoatToursManagerModel.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jmelosegui.googlemap.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -322,6 +553,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\markerclusterer.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

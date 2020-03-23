@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="BoatTourManagerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="text" />
+          <Property Name="streetName" Type="text" />
+          <Property Name="location" Type="text" />
+          <Property Name="postCode" Type="text" />
+          <Property Name="country" Type="text" />
+        </EntityType>
         <EntityType Name="Boat">
           <Key>
             <PropertyRef Name="id" />
@@ -15,6 +26,11 @@
           <Property Name="pricePerHour" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="rented" Type="bit" Nullable="false" />
           <Property Name="location_id" Type="int" Nullable="false" />
+          <Property Name="likeCount" Type="int" />
+          <Property Name="disLikeCount" Type="int" />
+          <Property Name="seasonId" Type="int" />
+          <Property Name="title" Type="varchar" MaxLength="50" />
+          <Property Name="imagePath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="BoatRental">
           <Key>
@@ -53,6 +69,16 @@
           <Property Name="stateId" Type="int" Nullable="false" />
           <Property Name="cityName" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" />
+          <Property Name="boatId" Type="int" />
+          <Property Name="comments" Type="nvarchar(max)" />
+          <Property Name="commentDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="countryId" />
@@ -90,6 +116,16 @@
           <Property Name="longitude" Type="decimal" Precision="18" Scale="0" />
           <Property Name="name" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="LikeDislikeBoat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="boatId" Type="int" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="action" Type="int" Nullable="false" />
+          <Property Name="isLike" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="id" />
@@ -117,6 +153,13 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Popularity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PriceCategory">
           <Key>
@@ -474,6 +517,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LikeDislikeBoat_Boat">
+          <End Role="Boat" Type="Self.Boat" Multiplicity="1" />
+          <End Role="LikeDislikeBoat" Type="Self.LikeDislikeBoat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Boat">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LikeDislikeBoat">
+              <PropertyRef Name="boatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeDislikeBoat_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="LikeDislikeBoat" Type="Self.LikeDislikeBoat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LikeDislikeBoat">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Location_LatLongCoordinate_latLongCoordinateId">
           <End Role="LatLongCoordinate" Type="Self.LatLongCoordinate" Multiplicity="0..1" />
           <End Role="Location" Type="Self.Location" Multiplicity="*" />
@@ -642,7 +709,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Address_addressId">
+        <Association Name="FK_User_Address_id">
           <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -655,18 +722,22 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BoatTourManagerModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Boat" EntityType="Self.Boat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BoatRental" EntityType="Self.BoatRental" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BoatRentalOrder" EntityType="Self.BoatRentalOrder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BoatToursManager" EntityType="Self.BoatToursManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupTrip" EntityType="Self.GroupTrip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GroupTripPriceCategory" EntityType="Self.GroupTripPriceCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LatLongCoordinate" EntityType="Self.LatLongCoordinate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LikeDislikeBoat" EntityType="Self.LikeDislikeBoat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonCategory" EntityType="Self.PersonCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Popularity" EntityType="Self.Popularity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PriceCategory" EntityType="Self.PriceCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchedulePlan" EntityType="Self.SchedulePlan" Schema="dbo" store:Type="Tables" />
@@ -762,6 +833,14 @@
             <End Role="PriceCategory" EntitySet="PriceCategory" />
             <End Role="GroupTripPriceCategory" EntitySet="GroupTripPriceCategory" />
           </AssociationSet>
+          <AssociationSet Name="FK_LikeDislikeBoat_Boat" Association="Self.FK_LikeDislikeBoat_Boat">
+            <End Role="Boat" EntitySet="Boat" />
+            <End Role="LikeDislikeBoat" EntitySet="LikeDislikeBoat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeDislikeBoat_User" Association="Self.FK_LikeDislikeBoat_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LikeDislikeBoat" EntitySet="LikeDislikeBoat" />
+          </AssociationSet>
           <AssociationSet Name="FK_Location_LatLongCoordinate_latLongCoordinateId" Association="Self.FK_Location_LatLongCoordinate_latLongCoordinateId">
             <End Role="LatLongCoordinate" EntitySet="LatLongCoordinate" />
             <End Role="Location" EntitySet="Location" />
@@ -818,7 +897,7 @@
             <End Role="Order" EntitySet="Order" />
             <End Role="TripOrder" EntitySet="TripOrder" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Address_addressId" Association="Self.FK_User_Address_addressId">
+          <AssociationSet Name="FK_User_Address_id" Association="Self.FK_User_Address_id">
             <End Role="UserAddress" EntitySet="UserAddress" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
@@ -828,6 +907,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BoatTourManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="streetName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="postCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Boat">
           <Key>
             <PropertyRef Name="id" />
@@ -838,8 +928,14 @@
           <Property Name="pricePerHour" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="rented" Type="Boolean" Nullable="false" />
           <Property Name="location_id" Type="Int32" Nullable="false" />
+          <Property Name="likeCount" Type="Int32" />
+          <Property Name="disLikeCount" Type="Int32" />
+          <Property Name="seasonId" Type="Int32" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="imagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Location" Relationship="Self.FK_Boat_Location" FromRole="Boat" ToRole="Location" />
           <NavigationProperty Name="BoatRental" Relationship="Self.FK_BoatRental_Boat_boatId" FromRole="Boat" ToRole="BoatRental" />
+          <NavigationProperty Name="LikeDislikeBoat" Relationship="Self.FK_LikeDislikeBoat_Boat" FromRole="Boat" ToRole="LikeDislikeBoat" />
         </EntityType>
         <EntityType Name="BoatRental">
           <Key>
@@ -882,6 +978,16 @@
           <Property Name="cityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserAddress" Relationship="Self.FK_Address_City" FromRole="City" ToRole="UserAddress" />
           <NavigationProperty Name="State" Relationship="Self.FK_City_State_StateId" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" />
+          <Property Name="boatId" Type="Int32" />
+          <Property Name="comments1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="commentDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Country">
           <Key>
@@ -932,6 +1038,18 @@
           <NavigationProperty Name="Route" Relationship="Self.FK_Route_LatLongCoordinate_endPoint" FromRole="LatLongCoordinate" ToRole="Route" />
           <NavigationProperty Name="Route1" Relationship="Self.FK_Route_LatLongCoordinate_startPoint" FromRole="LatLongCoordinate" ToRole="Route" />
         </EntityType>
+        <EntityType Name="LikeDislikeBoat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="boatId" Type="Int32" Nullable="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="action" Type="Int32" Nullable="false" />
+          <Property Name="isLike" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Boat" Relationship="Self.FK_LikeDislikeBoat_Boat" FromRole="LikeDislikeBoat" ToRole="Boat" />
+          <NavigationProperty Name="User" Relationship="Self.FK_LikeDislikeBoat_User" FromRole="LikeDislikeBoat" ToRole="User" />
+        </EntityType>
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="id" />
@@ -969,6 +1087,13 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PriceCategory" Relationship="Self.FK_PriceCategory_PersonCategory_personCategoryId" FromRole="PersonCategory" ToRole="PriceCategory" />
+        </EntityType>
+        <EntityType Name="Popularity">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PriceCategory">
           <Key>
@@ -1078,8 +1203,9 @@
           <Property Name="isEmailVerified" Type="Boolean" />
           <Property Name="activationCode" Type="Guid" />
           <Property Name="passwordResetCode" Type="Guid" />
+          <NavigationProperty Name="LikeDislikeBoat" Relationship="Self.FK_LikeDislikeBoat_User" FromRole="User" ToRole="LikeDislikeBoat" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_User_userId" FromRole="User" ToRole="Order" />
-          <NavigationProperty Name="UserAddress" Relationship="Self.FK_User_Address_addressId" FromRole="User" ToRole="UserAddress" />
+          <NavigationProperty Name="UserAddress" Relationship="Self.FK_User_Address_id" FromRole="User" ToRole="UserAddress" />
         </EntityType>
         <EntityType Name="UserAddress">
           <Key>
@@ -1095,7 +1221,7 @@
           <NavigationProperty Name="Country" Relationship="Self.FK_Address_Country" FromRole="UserAddress" ToRole="Country" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Address_addressId" FromRole="UserAddress" ToRole="Order" />
           <NavigationProperty Name="State" Relationship="Self.FK_Address_State" FromRole="UserAddress" ToRole="State" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Address_addressId" FromRole="UserAddress" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Address_id" FromRole="UserAddress" ToRole="User" />
           <NavigationProperty Name="UserAddress1" Relationship="Self.FK_Address_Address" FromRole="UserAddress" ToRole="UserAddress1" />
           <NavigationProperty Name="UserAddress2" Relationship="Self.FK_Address_Address" FromRole="UserAddress1" ToRole="UserAddress" />
         </EntityType>
@@ -1119,6 +1245,18 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="BoatRental">
+              <PropertyRef Name="boatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LikeDislikeBoat_Boat">
+          <End Role="Boat" Type="Self.Boat" Multiplicity="1" />
+          <End Role="LikeDislikeBoat" Type="Self.LikeDislikeBoat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Boat">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LikeDislikeBoat">
               <PropertyRef Name="boatId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1351,6 +1489,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LikeDislikeBoat_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="LikeDislikeBoat" Type="Self.LikeDislikeBoat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="LikeDislikeBoat">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Order_Address_addressId">
           <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -1459,7 +1609,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Address_addressId">
+        <Association Name="FK_User_Address_id">
           <End Role="UserAddress" Type="Self.UserAddress" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1491,18 +1641,22 @@
           <End Role="GroupTrip" Type="Self.GroupTrip" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="BoatTourManagerEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BoatTourManagerEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Boat" EntityType="Self.Boat" />
           <EntitySet Name="BoatRental" EntityType="Self.BoatRental" />
           <EntitySet Name="BoatToursManager" EntityType="Self.BoatToursManager" />
           <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" />
           <EntitySet Name="Country" EntityType="Self.Country" />
           <EntitySet Name="GroupTrip" EntityType="Self.GroupTrip" />
           <EntitySet Name="GroupTripPriceCategory" EntityType="Self.GroupTripPriceCategory" />
           <EntitySet Name="LatLongCoordinate" EntityType="Self.LatLongCoordinate" />
+          <EntitySet Name="LikeDislikeBoat" EntityType="Self.LikeDislikeBoat" />
           <EntitySet Name="Location" EntityType="Self.Location" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="PersonCategory" EntityType="Self.PersonCategory" />
+          <EntitySet Name="Popularity" EntityType="Self.Popularity" />
           <EntitySet Name="PriceCategory" EntityType="Self.PriceCategory" />
           <EntitySet Name="Route" EntityType="Self.Route" />
           <EntitySet Name="SchedulePlan" EntityType="Self.SchedulePlan" />
@@ -1520,6 +1674,10 @@
           <AssociationSet Name="FK_BoatRental_Boat_boatId" Association="Self.FK_BoatRental_Boat_boatId">
             <End Role="Boat" EntitySet="Boat" />
             <End Role="BoatRental" EntitySet="BoatRental" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LikeDislikeBoat_Boat" Association="Self.FK_LikeDislikeBoat_Boat">
+            <End Role="Boat" EntitySet="Boat" />
+            <End Role="LikeDislikeBoat" EntitySet="LikeDislikeBoat" />
           </AssociationSet>
           <AssociationSet Name="FK_BoatRental_Location_locationId" Association="Self.FK_BoatRental_Location_locationId">
             <End Role="Location" EntitySet="Location" />
@@ -1597,6 +1755,10 @@
             <End Role="LatLongCoordinate" EntitySet="LatLongCoordinate" />
             <End Role="Route" EntitySet="Route" />
           </AssociationSet>
+          <AssociationSet Name="FK_LikeDislikeBoat_User" Association="Self.FK_LikeDislikeBoat_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LikeDislikeBoat" EntitySet="LikeDislikeBoat" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Address_addressId" Association="Self.FK_Order_Address_addressId">
             <End Role="UserAddress" EntitySet="UserAddress" />
             <End Role="Order" EntitySet="Order" />
@@ -1633,7 +1795,7 @@
             <End Role="State" EntitySet="State" />
             <End Role="UserAddress" EntitySet="UserAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Address_addressId" Association="Self.FK_User_Address_addressId">
+          <AssociationSet Name="FK_User_Address_id" Association="Self.FK_User_Address_id">
             <End Role="UserAddress" EntitySet="UserAddress" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
@@ -1655,7 +1817,19 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BoatTourManagerModelStoreContainer" CdmEntityContainer="BoatTourManagerEntities">
+        <EntityContainerMapping StorageEntityContainer="BoatTourManagerModelStoreContainer" CdmEntityContainer="BoatTourManagerEntities1">
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="BoatTourManagerModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="streetName" ColumnName="streetName" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="postCode" ColumnName="postCode" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Boat">
             <EntityTypeMapping TypeName="BoatTourManagerModel.Boat">
               <MappingFragment StoreEntitySet="Boat">
@@ -1665,6 +1839,11 @@
                 <ScalarProperty Name="pricePerHour" ColumnName="pricePerHour" />
                 <ScalarProperty Name="rented" ColumnName="rented" />
                 <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="likeCount" ColumnName="likeCount" />
+                <ScalarProperty Name="disLikeCount" ColumnName="disLikeCount" />
+                <ScalarProperty Name="seasonId" ColumnName="seasonId" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="imagePath" ColumnName="imagePath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1698,6 +1877,17 @@
                 <ScalarProperty Name="cityId" ColumnName="cityId" />
                 <ScalarProperty Name="stateId" ColumnName="stateId" />
                 <ScalarProperty Name="cityName" ColumnName="cityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="BoatTourManagerModel.Comments">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="boatId" ColumnName="boatId" />
+                <ScalarProperty Name="comments1" ColumnName="comments" />
+                <ScalarProperty Name="commentDate" ColumnName="commentDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1741,6 +1931,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LikeDislikeBoat">
+            <EntityTypeMapping TypeName="BoatTourManagerModel.LikeDislikeBoat">
+              <MappingFragment StoreEntitySet="LikeDislikeBoat">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="boatId" ColumnName="boatId" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="isLike" ColumnName="isLike" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Location">
             <EntityTypeMapping TypeName="BoatTourManagerModel.Location">
               <MappingFragment StoreEntitySet="Location">
@@ -1767,6 +1968,14 @@
           <EntitySetMapping Name="PersonCategory">
             <EntityTypeMapping TypeName="BoatTourManagerModel.PersonCategory">
               <MappingFragment StoreEntitySet="PersonCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Popularity">
+            <EntityTypeMapping TypeName="BoatTourManagerModel.Popularity">
+              <MappingFragment StoreEntitySet="Popularity">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
